@@ -1,0 +1,19 @@
+#include "SSS.hps"
+
+void OnStart()
+{
+  PlayMusic("Breach.ogg", true, 1, 1, 1, true);
+
+  Start_Stamina_System();
+}
+
+void Save(string &in Entity)
+{
+  AutoSave();
+
+}
+
+void Hurt(string &in Entity)
+{
+  GivePlayerDamage(10, "BloodSplat", false, true);
+}

@@ -1,0 +1,15 @@
+<SOUNDENTITY>
+  <SOUNDS>
+  	<Main>
+  		<Sound File="Step0" />
+		<Sound File="Step1" />
+		<Sound File="Step2" />
+		<Sound File="Step3" />
+		<Sound File="Step4" />
+		<Sound File="Step5" />
+		<Sound File="Step6" />
+		<Sound File="Step7" />
+  	</Main>
+  </SOUNDS>
+  <PROPERTIES Volume="0.7" MinDistance="4" MaxDistance="12" Random="1" Interval="0" FadeEnd="False" FadeStart="False" Stream="False" Loop="False" Use3D="True" Blockable="True" BlockVolumeMul="0.7" Priority="0" />
+</SOUNDENTITY>

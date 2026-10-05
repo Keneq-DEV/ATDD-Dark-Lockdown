@@ -1,0 +1,255 @@
+// Stamina System Constants
+// Timing
+const float kCheckTime = 0.1f; // REDUCED to 0.1f for smoother UI updates. 0.5f is too choppy for a UI bar.
+const float kTiredBreathInterval = 2.5f; 
+
+// Stamina Values
+const float kMaxStamina = 200.0f; 
+const float kExhaustionThreshold = 0.0f;          
+const float kRecoveryFromExhaustionThreshold = 55.0f; 
+
+// Stamina Change Rates (adjusted for 0.1s tick)
+// Original was 2.0 per 0.5s = 4.0/sec. New: 0.4 per 0.1s = 4.0/sec.
+const float kStaminaDepleteAmount = 2.0f;   
+// Original was 1.0 per 0.5s = 2.0/sec. New: 0.2 per 0.1s = 2.0/sec.
+const float kStaminaRegenAmountStill = 1.0f; 
+// Original was 0.5 per 0.5s = 1.0/sec. New: 0.1 per 0.1s = 1.0/sec.
+const float kStaminaRegenAmountWalk = 0.1f;
+const float kStaminaRegenAmountCrouch = 0.3f; // Faster than Still (0.1)  
+
+// Player Speed Multipliers
+const float kNormalMoveSpeedMultiplier = 1.0f;
+const float kNormalRunSpeedMultiplier = 1.0f;
+const float kTiredWalkSpeedMultiplier = 0.5f; 
+
+// Player Speed Thresholds
+const float kRunningSpeedThreshold = 3.0f;  
+const float kWalkingSpeedThreshold = 0.1f;  
+
+// Screen Effect Constants
+const float kTiredRadialBlurAmount = 0.05f; 
+const float kTiredFOVMul = 0.95f;         
+const float kScreenEffectFadeDuration = 0.75f; 
+
+// Sound Files
+const string kExhaustedSound = "react_breath_slow.snt"; 
+const string kRecoveredSound = "player_stand.snt";    
+const string kFatigueWarningSound = "react_breath.snt"; // Added this back for the warning logic below
+
+// UI Constants
+const string kImgStaminaBG = "stamina_bg.tga";     // Background frame
+const string kImgStaminaFill = "stamina_100perc.tga"; // Small block to repeat
+const float kUI_X = 50.0f;       // Screen X position of the bar start
+const float kUI_Y = 550.0f;      // Screen Y position
+const float kUI_BarWidth = 20.0f; // Width of one "fill" block
+const float kUI_Spacing = 2.0f;   // Space between blocks
+const int kUI_NumBars = 10;       // Total number of blocks to show at 100%
+
+// --- SCRIPT START ---
+
+void Start_Stamina_System() 
+{
+    // Initialize stamina variables
+    SetLocalVarFloat("PlayerStamina", kMaxStamina);
+    SetLocalVarInt("PlayerIsTired", 0); 
+    
+    // Warning flags
+    SetLocalVarInt("PlayedWarningHigh", 0);
+    SetLocalVarInt("PlayedWarningMid", 0);
+    SetLocalVarInt("PlayedWarningLow", 0);
+
+    // Ensure normal player speed and effects at start
+    SetPlayerMoveSpeedMul(kNormalMoveSpeedMultiplier);
+    SetPlayerRunSpeedMul(kNormalRunSpeedMultiplier);
+    FadeRadialBlurTo(0.0f, 0.01f);
+    FadePlayerFOVMulTo(1.0f, 0.01f);
+    FadeSepiaColorTo(0.0f, 0.01f);
+    
+    AddTimer("StaminaCheckTimer", kCheckTime, "CheckPlayerStamina");
+
+    AddDebugMessage("Stamina System Initialized. Max: " + kMaxStamina, false);
+    AddDebugMessage("Stamina System Initialized.", false);
+}
+
+void CheckPlayerStamina(string &in asTimer)
+{
+    float fCurrentStamina = GetLocalVarFloat("PlayerStamina");
+    bool bWasTired = (GetLocalVarInt("PlayerIsTired") == 1);
+    bool bIsTired = bWasTired; 
+    float fPlayerSpeed = GetPlayerSpeed();
+
+    AddDebugMessage("Stamina: " + fCurrentStamina + " | Tired: " + bIsTired + " | Speed: " + fPlayerSpeed, true);
+
+    // Logic similar to previous, but updated for 0.1s tick rates
+    if (bIsTired)
+    {
+        if (fPlayerSpeed <= kWalkingSpeedThreshold) fCurrentStamina += kStaminaRegenAmountStill;
+        else fCurrentStamina += kStaminaRegenAmountWalk;
+
+        SetPlayerMoveSpeedMul(kTiredWalkSpeedMultiplier);
+        SetPlayerRunSpeedMul(0.0f); 
+
+        if (fCurrentStamina >= kRecoveryFromExhaustionThreshold)
+        {
+            bIsTired = false; 
+        }
+    }
+    else 
+    {
+        float fStaminaBefore = fCurrentStamina;
+        
+        if (fPlayerSpeed > kRunningSpeedThreshold)
+        {
+            fCurrentStamina -= kStaminaDepleteAmount;
+            
+            if (fCurrentStamina <= kExhaustionThreshold)
+            {
+                bIsTired = true; 
+            }
+            else // Warnings
+            {
+                CheckStaminaWarnings(fStaminaBefore, fCurrentStamina);
+            }
+        }
+        else if (fPlayerSpeed > kWalkingSpeedThreshold)
+        {
+            fCurrentStamina += kStaminaRegenAmountWalk;
+        }
+        else
+        {
+            fCurrentStamina += kStaminaRegenAmountStill;
+        }
+        
+        // Reset warning flags if recovering
+        ResetWarningFlags(fCurrentStamina);
+    }
+    
+    // Clamp
+    if (fCurrentStamina > kMaxStamina) fCurrentStamina = kMaxStamina;
+    if (fCurrentStamina < 0.0f) fCurrentStamina = 0.0f;
+
+    // State Transitions
+    if (bIsTired && !bWasTired) 
+    {
+        AddDebugMessage("Player Exhausted!", false);
+        SetPlayerMoveSpeedMul(kTiredWalkSpeedMultiplier);
+        SetPlayerRunSpeedMul(0.0f);
+        PlaySoundAtEntity("", kExhaustedSound, "Player", 0, false); 
+        AddTimer("TiredBreathSoundTimer", kTiredBreathInterval, "PlayTiredBreathSound");
+        
+        FadeRadialBlurTo(kTiredRadialBlurAmount, kScreenEffectFadeDuration);
+        FadePlayerFOVMulTo(kTiredFOVMul, kScreenEffectFadeDuration);
+        FadeSepiaColorTo(1.0f, 1.1f);
+        
+        // Reset warnings so they play again next time
+        SetLocalVarInt("PlayedWarningHigh", 0);
+        SetLocalVarInt("PlayedWarningMid", 0);
+        SetLocalVarInt("PlayedWarningLow", 0);
+    }
+    else if (!bIsTired && bWasTired) 
+    {
+        AddDebugMessage("Player Recovered!", false);
+        SetPlayerMoveSpeedMul(kNormalMoveSpeedMultiplier);
+        SetPlayerRunSpeedMul(kNormalRunSpeedMultiplier);
+        RemoveTimer("TiredBreathSoundTimer");
+        PlayGuiSound(kRecoveredSound, 1.0f);
+        
+        FadeRadialBlurTo(0.0f, kScreenEffectFadeDuration);
+        FadePlayerFOVMulTo(1.0f, kScreenEffectFadeDuration);
+        FadeSepiaColorTo(0.0f, 1.0f);
+        
+        SetLocalVarInt("PlayedWarningHigh", 0);
+        SetLocalVarInt("PlayedWarningMid", 0);
+        SetLocalVarInt("PlayedWarningLow", 0);
+    }
+
+    SetLocalVarFloat("PlayerStamina", fCurrentStamina);
+    SetLocalVarInt("PlayerIsTired", bIsTired ? 1 : 0);
+    
+    // Update UI
+    UpdateStaminaUI(fCurrentStamina);
+
+    AddTimer("StaminaCheckTimer", kCheckTime, "CheckPlayerStamina");
+}
+
+void UpdateStaminaUI(float fCurrentStamina)
+{
+    // Duration slightly longer than tick to prevent flickering
+    float fDuration = kCheckTime + 0.05f; 
+    
+    // Calculate percentage
+    float fPercent = fCurrentStamina / kMaxStamina;
+
+    // Default image
+    string sImageToLoad = "stamina_bg.dds"; 
+    
+    // Image selection logic
+    if(fPercent > 0.975f) sImageToLoad = "stamina_100perc.dds";
+    else if(fPercent > 0.95f) sImageToLoad = "stamina_95perc.dds";
+    else if(fPercent > 0.90f) sImageToLoad = "stamina_90perc.dds";
+    else if(fPercent > 0.85f) sImageToLoad = "stamina_85perc.dds";
+    else if(fPercent > 0.80f) sImageToLoad = "stamina_80perc.dds";
+    else if(fPercent > 0.75f) sImageToLoad = "stamina_75perc.dds";
+    else if(fPercent > 0.70f) sImageToLoad = "stamina_70perc.dds";
+    else if(fPercent > 0.65f) sImageToLoad = "stamina_65perc.dds";
+    else if(fPercent > 0.60f) sImageToLoad = "stamina_60perc.dds";
+    else if(fPercent > 0.55f) sImageToLoad = "stamina_55perc.dds";
+    else if(fPercent > 0.50f) sImageToLoad = "stamina_50perc.dds";
+    else if(fPercent > 0.45f) sImageToLoad = "stamina_45perc.dds";
+    else if(fPercent > 0.40f) sImageToLoad = "stamina_40perc.dds";
+    else if(fPercent > 0.35f) sImageToLoad = "stamina_35perc.dds";
+    else if(fPercent > 0.30f) sImageToLoad = "stamina_30perc.dds";
+    else if(fPercent > 0.25f) sImageToLoad = "stamina_25perc.dds";
+    else if(fPercent > 0.20f) sImageToLoad = "stamina_20perc.dds";
+    else if(fPercent > 0.15f) sImageToLoad = "stamina_15perc.dds";
+    else if(fPercent > 0.10f) sImageToLoad = "stamina_10perc.dds";
+    else if(fPercent > 0.005f) sImageToLoad = "stamina_5perc.dds";
+    
+    // Call ShowScreenImage with 8 arguments
+    // Name: sImageToLoad
+    // X: 50.0f (Pixels from left)
+    // Y: 500.0f (Pixels from top)
+    // Scale: -1.0f (Use original image size)
+    // UseRelativeCoordinates: false (Use pixels, not 0.0-1.0 percentage)
+    // Duration: fDuration (Time to stay on screen)
+    // FadeIn: 0.0f (Instant appear)
+    // FadeOut: 0.0f (Instant disappear)
+    ShowScreenImage(sImageToLoad, -800.0f, 50.0f, 600.0f, false, fDuration, 0.0f, 0.0f);
+    
+}
+
+void CheckStaminaWarnings(float fOld, float fNew)
+{
+    float fThresholdHigh = 120.0f; // 50%
+    float fThresholdMid = 75.0f;  // 30%
+    float fThresholdLow = 25.0f;  // 25%
+    
+    if (fOld > fThresholdHigh && fNew <= fThresholdHigh && GetLocalVarInt("PlayedWarningHigh") == 0) {
+        PlaySoundAtEntity("", kFatigueWarningSound, "Player", 0, false);
+        SetLocalVarInt("PlayedWarningHigh", 1);
+    }
+    if (fOld > fThresholdMid && fNew <= fThresholdMid && GetLocalVarInt("PlayedWarningMid") == 0) {
+        PlaySoundAtEntity("", kFatigueWarningSound, "Player", 0, false);
+        SetLocalVarInt("PlayedWarningMid", 1);
+    }
+    if (fOld > fThresholdLow && fNew <= fThresholdLow && GetLocalVarInt("PlayedWarningLow") == 0) {
+        PlaySoundAtEntity("", kFatigueWarningSound, "Player", 0, false);
+        SetLocalVarInt("PlayedWarningLow", 1);
+    }
+}
+
+void ResetWarningFlags(float fCurrent)
+{
+    if (fCurrent > 25.0f && GetLocalVarInt("PlayedWarningLow") == 1) SetLocalVarInt("PlayedWarningLow", 0);
+    if (fCurrent > 30.0f && GetLocalVarInt("PlayedWarningMid") == 1) SetLocalVarInt("PlayedWarningMid", 0);
+    if (fCurrent > 50.0f && GetLocalVarInt("PlayedWarningHigh") == 1) SetLocalVarInt("PlayedWarningHigh", 0);
+}
+
+void PlayTiredBreathSound(string &in asTimer)
+{
+	if (GetLocalVarInt("PlayerIsTired") == 1) 
+	{
+		PlaySoundAtEntity("", kExhaustedSound, "Player", 0, false);
+		AddTimer("TiredBreathSoundTimer", kTiredBreathInterval, "PlayTiredBreathSound"); 
+	}
+}

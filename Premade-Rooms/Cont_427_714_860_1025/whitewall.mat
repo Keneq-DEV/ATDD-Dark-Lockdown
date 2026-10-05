@@ -1,0 +1,6 @@
+<Material>
+	<Main DepthTest="True" PhysicsMaterial="Stone" Type="SolidDiffuse" />
+	<TextureUnits>
+		<Diffuse AnimFrameTime="" AnimMode="" File="whitewall.jpg" Mipmaps="true" Type="2D" Wrap="Repeat" />
+	</TextureUnits>
+</Material>

@@ -1,0 +1,130 @@
+<Level>
+    <EditorSession>
+        <Performance CamClipPlanes="0.05 1000" LightsActive="true" PSActive="true" ShowFog="true" ShowSkybox="true" WorldReflection="true" />
+        <ViewportConfig BGColor="0.2 0.2 0.2 1" GAmbientLight="true" GPointLight="false" GridSnap="false" GridSnapSeparation="0.25" SelectedViewport="3" UsingEnlargedViewport="true">
+            <Viewport CameraPosition="-0.0519637 0.25647 176.807" CameraTarget="-0.0519637 0.25647 -3.19261" CameraZoom="0" GridHeight="-3.19261" GridPlane="2" Preset="0" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="179.948 0.25647 -3.19261" CameraTarget="-0.0519637 0.25647 -3.19261" CameraZoom="0" GridHeight="-0.0519637" GridPlane="0" Preset="1" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="-0.240488 180.256 -3.13294" CameraTarget="-0.240488 0.25647 -3.13294" CameraZoom="0" GridHeight="0.25647" GridPlane="1" Preset="2" RenderMode="1" ShowAxes="true" ShowGrid="true" UsingLTCam="true" />
+            <Viewport CameraPosition="3.37979 3.87612 -7.4071" CameraTarget="-0.484285 0.0658028 -2.45875" CameraZoom="1.91813" GridHeight="0.25647" GridPlane="1" Preset="3" RenderMode="0" ShowAxes="false" ShowGrid="false" UsingLTCam="false" />
+        </ViewportConfig>
+        <Groups>
+            <Group ID="0" Name="None" Visible="true" />
+        </Groups>
+    </EditorSession>
+    <MapData FogActive="false" FogColor="1 1 1 1" FogCulling="true" FogEnd="20" FogFalloffExp="1" FogStart="0" GlobalDecalMaxTris="300" Name="" SkyBoxActive="false" SkyBoxColor="1 1 1 1" SkyBoxTexture="../../../../../../">
+        <MapContents>
+            <FileIndex_StaticObjects NumOfFiles="9">
+                <File Id="0" Path="static_objects/Premade_Rooms/Cont_427_714_860_1025/cont_427_714_860_1025.dae" />
+                <File Id="1" Path="static_objects/decals/dirt_floor02.dae" />
+                <File Id="2" Path="static_objects/dungeonbase/wall/default_extension.dae" />
+                <File Id="3" Path="static_objects/dungeonbase/special/menu_wall.dae" />
+                <File Id="4" Path="static_objects/decals/dirt_floor03.dae" />
+                <File Id="5" Path="static_objects/decals/rose_petals.dae" />
+                <File Id="6" Path="static_objects/decals/rose_petals02.dae" />
+                <File Id="7" Path="static_objects/decals/rose_petals03.dae" />
+                <File Id="8" Path="static_objects/dungeonbase/wall/welder_wood.dae" />
+            </FileIndex_StaticObjects>
+            <FileIndex_Entities NumOfFiles="2">
+                <File Id="0" Path="entities/lamp/torch_static01/torch_static01_nosound.ent" />
+                <File Id="1" Path="entities/bottle/amnesia/amnesia_bottle_menu.ent" />
+            </FileIndex_Entities>
+            <FileIndex_Decals NumOfFiles="1">
+                <File Id="0" Path="static_objects/decals/trail_floor_additive.mat" />
+            </FileIndex_Decals>
+            <StaticObjects>
+                <StaticObject CastShadows="true" Collides="false" FileIndex="3" Group="0" ID="23" Name="special_menu_wall_1" Rotation="3.14159 -4.44253e-006 3.14159" Scale="0.75 1 1" Tag="" WorldPos="3.5 0.25 -0.75" />
+                <StaticObject CastShadows="true" Collides="false" FileIndex="3" Group="0" ID="25" Name="special_menu_wall_3" Rotation="3.14159 -4.44253e-006 3.14159" Scale="0.75 1 1" Tag="" WorldPos="6.5 0.25 -0.75" />
+                <StaticObject CastShadows="true" Collides="false" FileIndex="2" Group="0" ID="27" Name="wall_default_extension_1" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="3.75 4.25 -0.5" />
+                <StaticObject CastShadows="true" Collides="false" FileIndex="2" Group="0" ID="28" Name="wall_default_extension_2" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="7.75 4.25 -0.5" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="41" Name="rose_petals_3" Rotation="0 -0.591234 0" Scale="2 1.5 2" Tag="" WorldPos="-0.0844788 0.25647 -1.86474" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="5" Group="0" ID="46" Name="rose_petals_8" Rotation="0 -0.781201 0" Scale="1.5 1.5 1.5" Tag="" WorldPos="0.106827 0.25647 -5.20772" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="3" Group="0" ID="52" Name="special_menu_wall_5" Rotation="3.14159 -4.44253e-006 3.14159" Scale="0.75 1 1" Tag="" WorldPos="9.5 0.25 -0.75" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="6" Group="0" ID="54" Name="rose_petals02_1" Rotation="0 -1.42086 0" Scale="2 1 2" Tag="" WorldPos="-0.0519637 0.25647 -3.19261" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="7" Group="0" ID="55" Name="rose_petals03_1" Rotation="0 -0.472955 0" Scale="2 1 2" Tag="" WorldPos="-0.150673 0.25647 -4.50199" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="6" Group="0" ID="56" Name="rose_petals02_2" Rotation="-0.646582 -1.38253 0.655175" Scale="2 1 2" Tag="" WorldPos="0.0558059 0.401924 -0.90773" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="58" Name="wall_welder_wood_1" Rotation="0 0 -1.57079" Scale="0.75 0.75 0.25" Tag="" WorldPos="2 4.25 -1" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="59" Name="wall_welder_wood_2" Rotation="0 0 -1.57079" Scale="0.75 0.75 0.25" Tag="" WorldPos="5 4.25 -1" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="8" Group="0" ID="60" Name="wall_welder_wood_3" Rotation="0 0 -1.57079" Scale="0.75 0.75 0.25" Tag="" WorldPos="8 4.25 -1" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="3" Group="0" ID="67" Name="special_menu_wall_9" Rotation="3.14159 -4.44253e-006 3.14159" Scale="0.75 1 1" Tag="" WorldPos="12.5 0.25 -0.75" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="3" Group="0" ID="68" Name="special_menu_wall_10" Rotation="3.14159 -4.44253e-006 3.14159" Scale="0.75 1 1" Tag="" WorldPos="15.5 0.25 -0.75" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="69" Name="wall_default_extension_5" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="15.75 4.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="70" Name="wall_default_extension_6" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="11.75 4.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="79" Name="wall_default_extension_13" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="3.75 8.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="80" Name="wall_default_extension_14" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="7.75 8.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="81" Name="wall_default_extension_15" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="11.75 8.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="82" Name="wall_default_extension_16" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="15.75 8.25 -0.5" />
+                <StaticObject CastShadows="false" Collides="false" FileIndex="2" Group="0" ID="83" Name="wall_default_extension_17" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="-0.25 8.25 -0.5" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="7" Group="0" ID="95" Name="rose_petals03_2" Rotation="0 -0.472955 0" Scale="2 1 1.25" Tag="" WorldPos="-0.517831 0.233595 0.392186" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="6" Group="0" ID="96" Name="rose_petals02_3" Rotation="-2.93469 -0.879598 2.87767" Scale="0.75 1 2" Tag="" WorldPos="-0.310012 0.138195 1.77684" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="4" Group="0" ID="97" Name="dirt_floor01_1" Rotation="0 0 0" Scale="1.75 1 1.75" Tag="" WorldPos="3.52751 0.272697 -1.66756" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="1" Group="0" ID="99" Name="dirt_floor02_1" Rotation="-1.57079 0 0" Scale="2.75 1 2.75" Tag="" WorldPos="3.445 3.2126 -0.765448" />
+                <StaticObject CastShadows="true" Collides="true" FileIndex="0" Group="0" ID="105" Name="Cont_427_714_860_1025_cont_427_714_860_1026" Rotation="0 -0.785398 0" Scale="1 1 1" Tag="" WorldPos="1.85821 0.25647 -3.68947" />
+            </StaticObjects>
+            <Primitives />
+            <Decals>
+                <Decal Active="true" Color="1 0.412 0.399 1" CurrentSubDiv="0" Group="0" ID="102" MaterialIndex="0" MaxTriangles="-1" Name="trail_floor_additive_1" Offset="0.00526017" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="-3.14159 -0.233478 -3.14159" Scale="1.75 0.00999999 1.75" SubDiv="2 2" Tag="" WorldPos="-0.265601 0.25 -2.66452">
+                    <DecalMesh NumInds="12" NumVerts="8">
+                        <Positions Array="-0.763 0.255 -3.446 1 -1.174 0.255 -2.701 1 -1.319 0.255 -3.313 1 -0.914 0.255 -1.611 1 -1.174 0.255 -2.701 1 -0.763 0.255 -3.446 1 0.383 0.255 -3.718 1 0.788 0.255 -2.016 1 " />
+                        <Normals Array="0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 " />
+                        <Tangents Array="-0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 " />
+                        <TexCoords Array="0.337 0.5 0 0.5 0.68 0 0.5 0.5 0 0.5 1 0 0.5 0.68 0 0.337 0.5 0 0 0.5 0 0 1 0 " />
+                        <Indices Array="0 1 2 3 4 5 3 5 6 3 6 7" />
+                    </DecalMesh>
+                </Decal>
+                <Decal Active="true" Color="1 0.412 0.399 1" CurrentSubDiv="3" Group="0" ID="104" MaterialIndex="0" MaxTriangles="-1" Name="trail_floor_additive_2" Offset="0.00526017" OnEntity="true" OnPrimitive="true" OnStatic="true" Rotation="-3.14159 -0.233478 -3.14159" Scale="1 0.01 1" SubDiv="2 2" Tag="" WorldPos="0.0518246 0.25 -1.83061">
+                    <DecalMesh NumInds="6" NumVerts="4">
+                        <Positions Array="-0.319 0.255 -1.229 1 -0.55 0.255 -2.201 1 0.423 0.255 -2.433 1 0.654 0.255 -1.46 1 " />
+                        <Normals Array="0 1 0 0 1 0 0 1 0 0 1 0 " />
+                        <Tangents Array="-0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 -0.973 0 0.231 1 " />
+                        <TexCoords Array="1 0.5 0 1 0 0 0.5 0 0 0.5 0.5 0 " />
+                        <Indices Array="0 1 2 0 2 3" />
+                    </DecalMesh>
+                </Decal>
+            </Decals>
+            <Entities>
+                <Entity Active="true" FileIndex="0" Group="0" ID="4" Name="torch_static01_nolight_1" Rotation="3.14159 -4.44253e-006 3.14159" Scale="1 1 1" Tag="" WorldPos="3.5 2.5 -0.75">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="StaticPhysics" Value="false" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                        <Var Name="CallbackFunc" Value="" />
+                        <Var Name="ConnectedProps" Value="" />
+                        <Var Name="ConnectionStateChangeCallback" Value="" />
+                        <Var Name="FullGameSave" Value="false" />
+                        <Var Name="PlayerLookAtCallback" Value="" />
+                        <Var Name="PlayerLookAtCallbackAutoRemove" Value="false" />
+                        <Var Name="PlayerInteractCallback" Value="" />
+                        <Var Name="PlayerInteractCallbackAutoRemove" Value="false" />
+                        <Var Name="Lit" Value="true" />
+                        <Var Name="ConnectedLight" Value="" />
+                        <Var Name="ConnectionLightAmount" Value="1" />
+                        <Var Name="ConnectionLightUseOnColor" Value="true" />
+                        <Var Name="ConnectionLightUseSpec" Value="false" />
+                    </UserVariables>
+                </Entity>
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.729 0.173 0 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="6" Name="PointLight_1" Radius="4.5" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="3 2 -2.5" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.1 0.1 0.2 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="15" Name="PointLight_2" Radius="6" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-1.54496 0.960015 3.91194" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.1 0.1 0.2 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="19" Name="PointLight_5" Radius="4.5" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-2.42472 1.59461 -2.30738" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.1 0.1 0.2 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="20" Name="PointLight_6" Radius="4.5" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-0.580141 1.59461 1.53276" />
+                <Billboard Active="true" BillboardColor="0.413 0.43 0.659 0.8" BillboardOffset="0" BillboardSize="2.5 9.5" BillboardType="Axis" ConnectLight="" Group="0" HaloSourceSize="0.3 0.3 0.3" ID="48" IsHalo="false" MaterialFile="G:/amnesia/redist/billboards/bb_lightyellow_lightray.mat" Name="Billboard_1" Rotation="0 0 0.367343" Tag="" WorldPos="-2.54997 4.72618 2.21851" />
+                <FogArea Active="true" Color="0 0 0 1" End="10" FalloffExp="0.75" Group="0" ID="49" Name="FogArea_1" Rotation="0 -0.470084 0" Scale="15 15 15" ShownBacksideWhenInside="true" ShownBacksideWhenOutside="false" Start="0" Tag="" WorldPos="-1.62901 1.75 8.51559" />
+                <ParticleSystem Active="true" Color="0.852 0.742 0.569 1" FadeAtDistance="false" File="ps_area_fog_nodepth.ps" Group="0" ID="50" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_1" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="3.54258 1.75 -3.27508" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.1 0.1 0.2 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="57" Name="PointLight_7" Radius="4.5" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="-1.5 6 -2.25" />
+                <PointLight Active="true" CastShadows="false" DiffuseColor="0.239 0.253 0.365 1" FalloffMap="" FlickerActive="false" FlickerFade="false" FlickerOffColor="0 0 0 1" FlickerOffFadeMaxLength="0" FlickerOffFadeMinLength="0" FlickerOffMaxLength="0" FlickerOffMinLength="0" FlickerOffPS="" FlickerOffRadius="0" FlickerOffSound="" FlickerOnFadeMaxLength="0" FlickerOnFadeMinLength="0" FlickerOnMaxLength="0" FlickerOnMinLength="0" FlickerOnPS="" FlickerOnSound="" Gobo="" GoboAnimFrameTime="0" GoboAnimMode="None" Group="0" ID="64" Name="PointLight_4" Radius="1.5" Rotation="0 0 0" Scale="1 1 1" ShadowResolution="High" ShadowsAffectDynamic="true" ShadowsAffectStatic="true" Tag="" WorldPos="0.25 2.1375 -1" />
+                <FogArea Active="true" Color="0 0 0 1" End="15" FalloffExp="1.25" Group="0" ID="74" Name="FogArea_3" Rotation="0 0 0" Scale="15 15 15" ShownBacksideWhenInside="true" ShownBacksideWhenOutside="false" Start="0" Tag="" WorldPos="16 1.75 -4" />
+                <ParticleSystem Active="true" Color="1 1 1 1" FadeAtDistance="false" File="ps_light_dust_large.ps" Group="0" ID="93" MaxFadeDistanceEnd="110" MaxFadeDistanceStart="100" MinFadeDistanceEnd="1" MinFadeDistanceStart="2" Name="ParticleSystem_3" Rotation="0 0 0" Scale="1 1 1" Tag="" WorldPos="-1.1991 3.13919 0.90786" />
+                <Area Active="true" AreaType="PlayerStart" Group="0" ID="94" Mesh="" Name="CameraPos" Rotation="3.015 0.219144 -3.12836" Scale="1 1 1" Tag="" WorldPos="1.4 2.802 -5.55">
+                    <UserVariables />
+                </Area>
+                <Entity Active="true" FileIndex="1" Group="0" ID="101" Name="amnesia_bottle_menu_1" Rotation="3.12828 0.269403 -3.14003" Scale="2 1 2" Tag="" WorldPos="-0.0561034 0.25647 -3.03066">
+                    <UserVariables>
+                        <Var Name="CastShadows" Value="true" />
+                        <Var Name="IsAffectedByDecal" Value="false" />
+                    </UserVariables>
+                </Entity>
+            </Entities>
+            <Misc />
+            <StaticObjectCombos />
+        </MapContents>
+    </MapData>
+</Level>

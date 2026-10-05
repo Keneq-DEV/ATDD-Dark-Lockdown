@@ -1,0 +1,15 @@
+<SOUNDENTITY>
+  <SOUNDS>
+  	<Main>
+  		<Sound File="Run0" />
+		<Sound File="Run1" />
+		<Sound File="Run2" />
+		<Sound File="Run3" />
+		<Sound File="Run4" />
+		<Sound File="Run5" />
+		<Sound File="Run6" />
+		<Sound File="Run7" />
+  	</Main>
+  </SOUNDS>
+  <PROPERTIES Volume="1.0" MinDistance="4" MaxDistance="14" Random="1" Interval="0" FadeEnd="False" FadeStart="False" Stream="False" Loop="False" Use3D="True" Blockable="True" BlockVolumeMul="0.7" Priority="0" />
+</SOUNDENTITY>
